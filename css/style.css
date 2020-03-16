@@ -9,7 +9,7 @@ body{
 	}
 /*-- banner --*/
 .banner{
-	background:url("../images/banner.jpg") no-repeat 0px 0px;
+	background:url("../images/piggi.jpg") no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -1701,7 +1701,7 @@ ul.social-slide li i.mac{
 /*-- //to-top --*/
 @media(max-width:1024px){
 	.banner {
-		background: url("../images/banner.jpg") no-repeat -290px 0px;
+		background: url("../images/piggi.jpg") no-repeat -290px 0px;
 		}
 	.banner-info h1 {
 		font-size: 44px;
@@ -2325,7 +2325,7 @@ ul.social-slide li i.mac{
 @media(max-width:640px){
 	.banner {
 			min-height: 670px;
-			background: url("../images/banner.jpg") no-repeat -413px 0px;
+			background: url("../images/piggi.jpg") no-repeat -413px 0px;
 			}
 	span.colon {
 		font-size: 47px;
@@ -2710,7 +2710,7 @@ ul.social-slide li i.mac{
 		}
 	.banner {
 		min-height: 572px;
-		background: url("../images/banner.jpg") no-repeat -492px -182px;
+		background: url("../images/piggi.jpg") no-repeat -492px -182px;
 		}
 	.nav-left {
 		width: 17%;
@@ -2956,7 +2956,7 @@ ul.social-slide li i.mac{
 @media(max-width:320px){
 	.banner {
 		min-height: 490px;
-		background: url("../images/banner.jpg") no-repeat -595px -182px;
+		background: url("../images/piggi.jpg") no-repeat -595px -182px;
 		}
 	.banner-info{
 		margin: 105px 0 0 0;
