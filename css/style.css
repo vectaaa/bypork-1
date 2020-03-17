@@ -9,7 +9,7 @@ body{
 	}
 /*-- banner --*/
 .banner{
-	background:url("...images/IMG_20190209_153953.jpg") no-repeat 0px 0px;
+	background:url("../images/piggi.jpg") no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -17,6 +17,7 @@ body{
 	-moz-background-size: cover;
 	min-height:840px;
 	}
+
 .banner-info{
 margin-top:266px;
 }
@@ -1701,7 +1702,8 @@ ul.social-slide li i.mac{
 /*-- //to-top --*/
 @media(max-width:1024px){
 	.banner {
-		background: url("../images/piggi.jpg") no-repeat -290px 0px;
+		background: url("../images/piggi.jpg") no-repeat;
+		background-size: cover;
 		}
 	.banner-info h1 {
 		font-size: 44px;
@@ -2325,7 +2327,8 @@ ul.social-slide li i.mac{
 @media(max-width:640px){
 	.banner {
 			min-height: 670px;
-			background: url("../images/piggi.jpg") no-repeat -413px 0px;
+			background: url("../images/piggi.jpg") no-repeat;
+			background-size: cover;
 			}
 	span.colon {
 		font-size: 47px;
@@ -2710,7 +2713,8 @@ ul.social-slide li i.mac{
 		}
 	.banner {
 		min-height: 572px;
-		background: url("../images/piggi.jpg") no-repeat -492px -182px;
+		background: url("../images/piggi.jpg") no-repeat;
+		background-size: cover;
 		}
 	.nav-left {
 		width: 17%;
