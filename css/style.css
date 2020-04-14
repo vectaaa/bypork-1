@@ -3302,4 +3302,11 @@ ul.social-slide li i.mac{
 	.footer-right {
 			width: 87%;
 		}
+        .footer {
+		 background-color: #354454;
+                 padding: 10px;
+                 font-size: 12px;
+                 text-align: center;
+                 color: #DBEFE7;
+	}
 }
