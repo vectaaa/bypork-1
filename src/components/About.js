@@ -6,7 +6,7 @@ import Footer from './navs/Footer';
 import Functions from '../utils/Functions';
 import { serverEndPoint, webTitle } from '../utils/Helpers';
 
-export default function Home() {
+export default function About() {
     
 	  const history = useHistory();
   
@@ -18,6 +18,27 @@ export default function Home() {
 
       <div className="page"> 
           <Header/>
+
+          <div class="ttm-page-title-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12"> 
+                        <div class="title-box text-left">
+                            <div class="page-title-heading">
+                                <h1 class="title">About Us</h1>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="index-2.html"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                                </span>
+                                <span class="ttm-bread-sep ttm-textcolor-white">&nbsp;   →  &nbsp;</span>
+                                <span class="ttm-textcolor-skincolor">About Us</span>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>                     
+        </div>
 
           <div className="site-main">
             
