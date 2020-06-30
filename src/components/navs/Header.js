@@ -97,7 +97,7 @@ export default function Header() {
                                     </div>
                                     <nav id="menu" className="menu">
                                         <ul className="dropdown">
-                                        <li className="active"><Link to="/">Home</Link></li>
+                                        <li className="active"><a href="/">Home</a></li>
                                         <li><Link to="/about">About Us</Link></li>
                                             <li><Link to="#">Services</Link>
                                                 <ul>
