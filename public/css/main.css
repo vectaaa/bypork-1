@@ -32,6 +32,11 @@ p {
     margin: 0 0 15px; 
 }
 
+.btn-green {
+    background-color: #99CC33;
+    border:1px solid #99CC33;
+}
+
 .notice {
     border-top: 2px solid #99CC33;
     background-color: #EBE9EB;
