@@ -153,7 +153,15 @@ export default function PigFarming() {
                 </div>
             </div>
         </div>
+        
+        <div style={{clear:'both'}}></div>
+        <br/><br/><br/>
+        <Footer/>
 
-        </div>
+        <a id="totop" href="#top">
+        <i className="fa fa-angle-up"></i>
+        </a>
+        
+    </div>
     );
 }
