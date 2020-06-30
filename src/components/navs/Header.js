@@ -106,6 +106,7 @@ export default function Header() {
                                                     <li><Link to="/services/charity-scheme">Charity Scheme</Link></li>
                                                 </ul>
                                             </li>
+                                            <li><Link to="/faq">FAQ</Link></li>
                                             <li><Link to="/contact">Contact Us</Link></li>
                                         </ul>
                                     </nav>
