@@ -27,13 +27,6 @@ export default function About() {
                             <div class="page-title-heading">
                                 <h1 class="title">About Us</h1>
                             </div>
-                            <div class="breadcrumb-wrapper">
-                                <span>
-                                    <a title="Homepage" href="index-2.html"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
-                                </span>
-                                <span class="ttm-bread-sep ttm-textcolor-white">&nbsp;   →  &nbsp;</span>
-                                <span class="ttm-textcolor-skincolor">About Us</span>
-                            </div>  
                         </div>
                     </div>
                 </div>
