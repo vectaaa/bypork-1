@@ -72,9 +72,6 @@ export default function InvestmentPlans() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div className="price_btn">
-                                                <a className="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-grey mb-20 w-100" href="details.html">Sign Up</a>
-                                            </div>
                                         </div>
                                     </div>
                                     <div className="col-md-4">
@@ -93,9 +90,6 @@ export default function InvestmentPlans() {
                                                         <li>duration of 10 months</li>
                                                     </ul>
                                                 </div>
-                                            </div>
-                                            <div className="price_btn">
-                                                <a className="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-grey mb-20 w-100" href="details.html">Sign Up</a>
                                             </div>
                                         </div>
                                     </div>
@@ -116,12 +110,10 @@ export default function InvestmentPlans() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div className="price_btn">
-                                                <a className="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-grey mb-20 w-100" href="details.html">Sign Up</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
