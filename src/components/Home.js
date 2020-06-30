@@ -34,6 +34,10 @@ export default function Home() {
         <div className="page"> 
             <Header/>
 
+            <div id="preloader">
+                <div id="status">&nbsp;</div>
+            </div>
+
             <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery">
                 <rs-module id="rev_slider_1_1" data-version="6.1.2" className="rev_slider_1_1_height">
                   <rs-slides>
