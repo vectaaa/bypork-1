@@ -102,7 +102,6 @@ export default function Header() {
                                             <li><Link to="#">Services</Link>
                                                 <ul>
                                                     <li><Link to="/services/pig-farming">Pig Farming & Processing</Link></li>
-                                                    <li><Link to="/services/investment-plans">Investment Solutions</Link></li>
                                                     <li><Link to="/services/charity-scheme">Charity Scheme</Link></li>
                                                 </ul>
                                             </li>
