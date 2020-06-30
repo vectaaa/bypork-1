@@ -1,71 +1,6 @@
-/**
-  * Name: Agrotek
-  * Version: 1.0
-  * Author: ThemetechMount
-  * Author URI: http://www.themetechmount.com
-*/
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i&amp;display=swap');
 
-/**
-
-  1. General
-     - Variables
-     - Transition
-     - Shadow
-     - Extra-outer
-
-  2. Spacing
-     - Padding
-     - Margin
-
-  3. Color
-     - Skin-color, Skin-bg-color, Skin-border-color
-     - darkGrey-color, darkGrey-bg-color
-     - white-color, white-bg-color, white-border-color
-     - Grey-color, Grey-bg-color, grey-border-color
-     - Extra-color
-
-  4. Pre-loader
-
-  5. TooltipTop
-
-  6. TopBar
-
-  7. Header
-     - SiteBrand(logo)
-     - SiteNavigation(Menu)
-     - (HeaderIcons - Search, Cart)
-     - ttm-search-overlay
-
-  8. Footer
-     - FirstFooter
-     - SecondFooter
-     - menu-footer-services
-     - mailchimp-inputbox
-     - flicker-widget
-     - Footer-nav-menu
-
-  9. GoTop BUtton
-  
-  10. Page-Title-Row
-
-  12. Inner-Pages
-      - contact-us
-      - error
-      - portfolio
-      - blog
-      - team-member-details
-      - element
-
-**/
- 
-/* ===============================================
-    General
-------------------------*/
-
-/** Variables **/
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
     display: block;
 }
@@ -95,6 +30,13 @@ iframe{
 }
 p { 
     margin: 0 0 15px; 
+}
+
+.notice {
+    border-top: 2px solid #99CC33;
+    background-color: #EBE9EB;
+    padding:10px;
+    width: 100%;
 }
 
 *::-moz-selection { 
