@@ -42,6 +42,7 @@ export default () => {
             <Route path="/contact" component={Contact}/>
             <Route path="/404" component={Error404} />
             <Route path="/faq" component={Faq}/>
+            <Route path="/invest" component={Invest}/>
             <Route path="/terms-and-conditions" component={TermsAndConditions}/>
             <Route path="/privacy-policy" component={PrivacyPolicy}/>
           </Switch> 
