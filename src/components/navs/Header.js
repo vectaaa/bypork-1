@@ -8,6 +8,7 @@ import { serverEndPoint, webTitle } from '../../utils/Helpers';
 export default function Header() {
     
     useEffect( () => {
+        window.scrollTo(0,0);
     }, []);
 
     return (
@@ -102,6 +103,7 @@ export default function Header() {
                                             <li><Link to="#">Services</Link>
                                                 <ul>
                                                     <li><Link to="/services/pig-farming">Pig Farming & Processing</Link></li>
+                                                    <li><Link to="/services/investment-plans">Investment Plans</Link></li>
                                                     <li><Link to="/services/charity-scheme">Charity Scheme</Link></li>
                                                 </ul>
                                             </li>
