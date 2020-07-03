@@ -34,9 +34,9 @@ export default function Home() {
         <div className="page"> 
             <Header/>
 
-            <div id="preloader">
+            {/* <div id="preloader">
                 <div id="status">&nbsp;</div>
-            </div>
+            </div> */}
 
             <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery">
                 <rs-module id="rev_slider_1_1" data-version="6.1.2" className="rev_slider_1_1_height">
@@ -87,10 +87,10 @@ export default function Home() {
                               data-frame_999="o:0;st:w;sR:7340;"
                               >Our Pig Farming Structure which is built to produce 200 - 300 Pigs a month.
                           </rs-layer>
-                          <a 
+                          <Link 
                               id="slider-1-slide-2-layer-4" 
                               className="rs-layer ttm-btn-bgcolor-skincolor ttm-btn ttm-btn-size-md"
-                              href="/about" target="_self" rel="nofollow"
+                              to="/about" target="_self" rel="nofollow"
                               data-type="text"
                               data-rsp_ch="on"
                               data-xy="x:c;yo:453px,453px,292px,205px;"
@@ -100,8 +100,8 @@ export default function Home() {
                               data-frame_1="e:Linear.easeNone;st:970;sp:500;sR:970;"
                               data-frame_999="o:0;st:w;sR:7530;"
                               data-frame_hover="bgc:#232323;boc:#232323;bos:solid;bow:1px,1px,1px,1px;sp:300ms;" 
-                              >MORE ABOUT  
-                          </a>
+                              >Read more about us 
+                          </Link>
                           
                           <rs-layer
                               id="slider-1-slide-1-layer-5"
@@ -178,10 +178,10 @@ export default function Home() {
                             data-frame_999="o:0;st:w;sR:7340;"
                             >Make Enough Money with our Investment Plans and Donate to Charity at Free Will. 
                         </rs-layer>
-                        <a
+                        <Link
                             id="slider-1-slide-2-layer-4" 
                             className="rs-layer ttm-btn-bgcolor-skincolor ttm-btn ttm-btn-size-md"
-                            href="#" target="_self" rel="nofollow"
+                            to="/invest" target="_self" rel="nofollow"
                             data-type="text"
                             data-rsp_ch="on"
                             data-xy="x:c;yo:453px,453px,292px,205px;"
@@ -192,7 +192,7 @@ export default function Home() {
                             data-frame_999="o:0;st:w;sR:7530;"
                             data-frame_hover="bgc:#232323;boc:#232323;bos:solid;bow:1px,1px,1px,1px;sp:300ms;" 
                             >INVEST NOW
-                        </a>
+                        </Link>
                         <rs-layer
                             id="slider-1-slide-2-layer-5"
                             className="ttm-bgcolor-white" 
@@ -510,7 +510,7 @@ export default function Home() {
                                       <div className="featured-desc">
                                           <p>Here at Bypork our investment plan has been tailored to...</p>
                                       </div>
-                                      <a className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" href="#">Learn More <i className="fa fa-chevron-right"></i></a>
+                                      <Link className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" to="/services/investment-plans">Learn More <i className="fa fa-chevron-right"></i></Link>
                                   </div>
                               </div>
                           </div>
@@ -528,7 +528,7 @@ export default function Home() {
                                       <div className="featured-desc">
                                           <p>We have shown a good track record in investment growth...</p>
                                       </div>
-                                      <a className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" href="#">Learn More <i className="fa fa-chevron-right"></i></a>
+                                      <Link className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" to="/services/investment-plans">Learn More <i className="fa fa-chevron-right"></i></Link>
                                   </div>
                               </div>
                           </div>
@@ -546,7 +546,7 @@ export default function Home() {
                                       <div className="featured-desc">
                                           <p>Farming pigs is not just a business but a passion driven by...</p>
                                       </div>
-                                      <a className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" href="#">Learn More <i className="fa fa-chevron-right"></i></a>
+                                      <Link className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" to="/services/pig-farming">Learn More <i className="fa fa-chevron-right"></i></Link>
                                   </div>
                               </div>
                           </div>
@@ -564,7 +564,7 @@ export default function Home() {
                                       <div className="featured-desc">
                                           <p>Society is the bed rock of our organisation, giving back 10% of...</p>
                                       </div>
-                                      <a className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" href="#">Learn More <i className="fa fa-chevron-right"></i></a>
+                                      <Link className="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-15" to="/services/charity-scheme">Learn More <i className="fa fa-chevron-right"></i></Link>
                                   </div>
                               </div>
                           </div>
