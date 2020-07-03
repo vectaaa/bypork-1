@@ -91,7 +91,7 @@ export default function CharityScheme() {
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="ttm_single_image-wrapper res-767-mt-30">
-                                                    <img class="img-fluid" src="images/single-img-sixteen.jpg" alt="single-img-sixteen"/>
+                                                    <img class="img-fluid" src={window.location.origin + '/images/single-img-sixteen.jpg'} alt="single-img-sixteen"/>
                                                 </div>
                                             </div>
                                         </div>
