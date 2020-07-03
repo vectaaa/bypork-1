@@ -4,7 +4,7 @@ import { serverEndPoint } from './Helpers';
     
 const PaystackLib = {
 
-    getReference: function () {
+    getPaymentReference: function () {
         let text = "";
         let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -13,100 +13,76 @@ const PaystackLib = {
         return text;
     },
 
-    confirmCheckout: async function (payment_transaction_id, transaction_id) {
-        
-        let data = `payment_transaction_id=${payment_transaction_id}&transaction_id=${transaction_id}`;
-        const status = document.getElementById("checkout-status");
-
-        let cookie = Functions.getCookie('lafazi_user_token');
-        
-        await axios({
-            method: 'put',
-            data: data,
-            url: serverEndPoint+'user/checkout/confirm',
-            headers : {
-                'Content-Type' : 'application/json',
-                'Accept' : 'application/json',
-                'x-access-token' : cookie
-            }
-        }).then( async (response) => {
-            status.innerHTML = `<p style='color:green'>${response.data.message}</p>`;
-            window.location="/my-books";
-        })
-        .catch( (error) => {
-            alert('Invalid request. Try again.');
-        });
-    },
-
-    deleteTransaction: async function (transaction_id) {
-        
-        let cookie = Functions.getCookie('lafazi_user_token');
+    deleteInvestment: async function(investment_id) {
         
         await axios({
             method: 'delete',
-            url: serverEndPoint+`user/transaction/delete/${transaction_id}`,
+            url: `${serverEndPoint}investment/delete/${investment_id}`,
             headers : {
-                'Content-Type' : 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept' : 'application/json',
-                'x-access-token' : cookie
+                // 'x-access-token' : token
             }
-        }).then( (response) => {
-        })
-        .catch( (error) => {
+        }).then( response => {
+            alert('deleted');
+        }).
+        catch( (error) => {
+            alert('error');
         });
     }, 
 
-    pushCart: function (carts) {
-        let all_carts = [];
+    payInvestment: async function(investment_id, reference_id) {
         
-        carts.forEach(function(item, index) {
-            all_carts.push(item);
-        });
-
-        return all_carts;
-    },
-
-    getDone: async function(firstname, lastname, phone, city, address, carts, reference_id) {
-        
-        const status = document.getElementById('checkout-status');
-        const btn = document.getElementsByClassName('pay')[0];
-        Functions.disableBtn(btn);
-        
-        let data = `firstname=${firstname}&lastname=${lastname}&phone=${phone}&city=${city}&address=${address}`;
-        data = data+`&carts=${JSON.stringify(carts)}`;
-        let cookie = Functions.getCookie('lafazi_user_token');
+        const data = `investment_id=${investment_id}&reference_id=${reference_id}`;
+        const status = document.getElementById('invest-status');
+        const btn = document.getElementById('invest-btn');
         
         await axios({
-            method: 'post',
+            method: 'put',
+            url: `${serverEndPoint}investment/confirm`,
             data: data,
-            url: serverEndPoint+'user/checkout',
             headers : {
-                'Content-Type' : 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept' : 'application/json',
-                'x-access-token' : cookie
+                //'x-access-token' : token
             }
-        }).then( async (response) => {
-            const transaction_id = response.data.data[0].transaction_id;
+        }).then( response => {
+            Functions.enableBtn('Invest', btn);
             
-            if(response.data.status) {
-                await this.confirmCheckout(reference_id, transaction_id);
+            if(response.data.data.status == 'approved') {
+                
+                document.getElementById('invest-heading').style.display = 'none';
+                document.getElementById('invest-now').style.display = 'none';
+                document.getElementById('invest-form').reset();
+                document.getElementById('invest-form').style.display = 'none';
+                
+                status.innerHTML = "<h2 style='font-size:20'><i className='fa fa-check'></i> Thank you for investing with Bypork.  <br/> <br/> Details of your interest shall be sent to your mail periodically.</h2>";
+
             } else {
-                await this.deleteTransaction(transaction_id);
+                status.innerHTML = `<p style='color:red'>${response.data.data.message}</p>`;
             }
-            Functions.enableBtn('Make Payment', btn);
         }).
         catch( (error) => {
-            Functions.enableBtn('Make Payment', btn);
-            status.innerHTML = "<p style='color:red'> Unable to make payment. Try again.</p>";
+            status.innerHTML = "<p style='color:red'> Unable to complete payment. Try again.</p>";
+            return false;
         });
     }, 
 
     getClose: function() {
         alert("Payment cancelled. Try again!");
+        window.location = '/invest';
     },
 
     getAmount: function (amount) {
-        let charges = (1.5/100)*amount;
+        let charges;
+
+        if(amount > 2000) {
+            charges = (1.5/100)*amount;
+            charges = charges+100;
+        } else {
+            charges = (1.5/100)*amount;
+        }
+        
         let fee = (+amount) + (+charges);
         let paystack_amount = Math.ceil(fee*100);
         return paystack_amount;
