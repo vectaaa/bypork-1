@@ -1,12 +1,49 @@
 import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { Link, useHistory } from "react-router-dom";
+import axios from 'axios';
 import Header from '../navs/Header';
 import Footer from '../navs/Footer';
+import Functions from '../../utils/Functions';
 import { serverEndPoint, webTitle } from '../../utils/Helpers';
 
 export default function InvestmentPlans() {
     
+    let [plans, setPlans] = React.useState('');
+
+    const [values, setValues] = React.useState({
+        plansLoaded: false,
+    });
+
+    async function getPlans() {
+        
+        await axios({
+            method: 'get',
+            url: serverEndPoint+`plans`,
+            headers : {
+                'Content-Type' : 'application/json',
+                'Accept' : 'application/json',
+            }
+        })
+        .then( async (response) => {
+            let details = response.data.data;
+            
+            if(response.status == 200) { 
+                
+                setPlans(details);
+                
+                setValues( values => ({
+                    ...values, 
+                    plansLoaded: true,
+                }));
+            }
+        }).
+        catch( (error) => {
+            console.log(error);
+        });
+    } 
+    
     useEffect( () => {
+        getPlans();
         document.title = webTitle+" Investment Plans";
     });
     
@@ -46,6 +83,7 @@ export default function InvestmentPlans() {
                         </div>
                         <div className="col-lg-9 content-area order-lg-2">
                             <div className="ttm-service-single-content-area">
+                                
                                 <div className="ttm-service-description">
                                     <h4>About our investment plans </h4>
                                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
@@ -54,66 +92,50 @@ export default function InvestmentPlans() {
                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                                 </div>
                                 
-                                <div id="invest-now" className="row no-gutters mt-50 res-767-mt-0">
-                                    <div className="col-md-4">
+                                <div>
+                                    
+                                    {!values.plansLoaded?
                                         
-                                        <div className="ttm-pricing-plan box-shadow text-left clearfix">
-                                            <div className="ttm-ptablebox-title"><h3>Bronze</h3></div>
-                                            <div className="ttm-ptablebox-desc">N100,000 - N299,999</div>
-                                            <div className="ttm-ptablebox-content">
-                                                <div className="ttm-ptablebox-price-w">
-                                                    
-                                                    <div className="ttm-ptablebox-price">25%</div>
-                                                    <div className="ttm-ptablebox-frequency">ROI</div>
-                                                </div>
-                                                <div className="ttm-ptablebox-features">
-                                                    <ul className="ttm-feature-lines">
-                                                        <li>duration of 10 months</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-4">
+                                        <div align="center" style={{margin:20}}>
+                                            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                                        </div> :
                                         
-                                        <div className="ttm-pricing-plan box-shadow text-left clearfix">
-                                            <div className="ttm-ptablebox-title"><h3>Silver</h3></div>
-                                            <div className="ttm-ptablebox-desc">N300,000 - N599,999</div>
-                                            <div className="ttm-ptablebox-content">
-                                                <div className="ttm-ptablebox-price-w">
-                                                    
-                                                    <div className="ttm-ptablebox-price">30%</div>
-                                                    <div className="ttm-ptablebox-frequency">ROI</div>
-                                                </div>
-                                                <div className="ttm-ptablebox-features">
-                                                    <ul className="ttm-feature-lines">
-                                                        <li>duration of 10 months</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-4">
-                                        
-                                        <div className="ttm-pricing-plan box-shadow text-left clearfix">
-                                            <div className="ttm-ptablebox-title"><h3>Gold</h3></div>
-                                            <div className="ttm-ptablebox-desc">N600,000 - N2,000,000</div>
-                                            <div className="ttm-ptablebox-content">
-                                                <div className="ttm-ptablebox-price-w">
-                                                    
-                                                    <div className="ttm-ptablebox-price">35%</div>
-                                                    <div className="ttm-ptablebox-frequency">ROI</div>
-                                                </div>
-                                                <div className="ttm-ptablebox-features">
-                                                    <ul className="ttm-feature-lines">
-                                                        <li>duration of 10 months</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <div>
+                                            {plans.length == 0 ?
+            
+                                                <div align="center" style={{marginTop:10, fontSize:16, color: '#FF465A'}}>
+                                                    No investment plans yet
+                                                </div> :
 
+                                                <div id="invest-now" className="row no-gutters mt-50 res-767-mt-0">
+                                                    {plans.map( (plan, index) => ( 
+                                                        <div className="col-md-4 col-sm-4 col-xs-12">
+                                                            <div className="ttm-pricing-plan plan-box text-left clearfix">
+                                                                <div className="ttm-ptablebox-title"><h3  align="center">{Functions.capitalizeFirstLetter(plan.name)}</h3></div>
+                                                                <div className="ttm-ptablebox-desc" style={{fontSize: 20, color: '#99CC33'}}>&#8358;{Functions.formatPrice(plan.range_from)} - &#8358;{Functions.formatPrice(plan.range_to)} </div>
+                                                                <div className="ttm-ptablebox-content">
+                                                                    <div className="ttm-ptablebox-price-w">
+                                                                        <div style={{fontSize: 20}}>{plan.roi}% ROI</div>
+                                                                    </div>
+                                                                    <div className="ttm-ptablebox-features">
+                                                                        Duration of {plan.duration} months
+                                                                    </div> <br/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                
+                                </div>
+                                
+                                <br/><br/>
+                                
+                                <div align="center">
+                                    <a href="/invest" className="btn btn-success btn-green btn-lg"> Invest Now <i className="fa fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
