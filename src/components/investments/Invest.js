@@ -1,4 +1,4 @@
-    import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios';
 import Header from '../navs/Header';
@@ -177,7 +177,7 @@ export default function Invest() {
                                                         <div className="col-md-4 col-sm-4 col-xs-12">
                                                             <div className="ttm-pricing-plan plan-box text-left clearfix">
                                                                 <div className="ttm-ptablebox-title"><h3>{Functions.capitalizeFirstLetter(plan.name)}</h3></div>
-                                                                <div className="ttm-ptablebox-desc" style={{fontSize: 20, color: '#99CC33'}}>&#8358;{Functions.formatPrice(plan.range_from)} - &#8358;{Functions.formatPrice(plan.range_to)} </div>
+                                                                <div className="ttm-ptablebox-desc" style={{fontSize: 18, color: '#99CC33'}}>&#8358;{Functions.formatPrice(plan.range_from)} - &#8358;{Functions.formatPrice(plan.range_to)} </div>
                                                                 <div className="ttm-ptablebox-content">
                                                                     <div className="ttm-ptablebox-price-w">
                                                                         <div style={{fontSize: 20}}>{plan.roi}% ROI</div>
@@ -217,7 +217,7 @@ export default function Invest() {
                                                     <div class="col-sm-6">
                                                         <div class="form-group"><br/>
                                                             <label>Selected Plan<abbr>*</abbr></label>
-                                                            <input type="text" name="plan" class="form-control border" value={values.plan_name}/>
+                                                            <input type="text" name="plan" class="form-control border" value={values.plan_name} style={{backgroundColor: '#eee'}} readOnly/>
                                                         </div>
                                                     </div>
                                                     
@@ -257,7 +257,7 @@ export default function Invest() {
                                                     </div>
 
                                                     <div class="col-sm-12">
-                                                        <div class="form-group"><br/>
+                                                        <div class="form-group">
                                                             <label>Business<abbr>*</abbr></label>
                                                             <input type="text" name="business" class="form-control border" onChange={onChangeHandler}/>
                                                         </div>
