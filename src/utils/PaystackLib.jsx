@@ -46,7 +46,7 @@ const PaystackLib = {
                 'Accept' : 'application/json',
                 //'x-access-token' : token
             }
-        }).then( response => {
+        }).then( async (response) => {
             Functions.enableBtn('Invest', btn);
             
             if(response.data.data.status == 'approved') {
@@ -59,10 +59,12 @@ const PaystackLib = {
                 status.innerHTML = "<h2 style='font-size:20'><i className='fa fa-check'></i> Thank you for investing with Bypork.  <br/> <br/> Details of your interest shall be sent to your mail periodically.</h2>";
 
             } else {
-                status.innerHTML = `<p style='color:red'>${response.data.data.message}</p>`;
+                await PaystackLib.deleteInvestment(investment_id);
+                status.innerHTML = `<p style='color:red'> Unable to complete payment. Try again.</p>`;
             }
         }).
-        catch( (error) => {
+        catch( async (error) => {
+            await PaystackLib.deleteInvestment(investment_id);
             status.innerHTML = "<p style='color:red'> Unable to complete payment. Try again.</p>";
             return false;
         });
