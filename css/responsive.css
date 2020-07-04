@@ -352,7 +352,7 @@
 	    height: 2px;
 	    width: 100%;
 	    padding: 0;
-	    background-color: #262626;
+	    background-color: #99cc33;
 	}
 	.ttm-menu-toggle .toggle-blocks-1 {
 	    position: relative;
@@ -490,7 +490,7 @@
 	.ttm-topbar-wrapper,.ttm-custombutton{
 	    display: none;
 	}
-	.ttm-menu-toggle .toggle-block{ background-color: #232323; }
+	.ttm-menu-toggle .toggle-block{ background-color: #99cc33; }
 	.ttm-stickable-header-w { background-color: #fff;}
 	.ttm-header-style-03 .ttm-stickable-header-w{background-color: #232323;}
 	.ttm-header-style-03 .ttm-menu-toggle .toggle-block{background-color: #fff;} 
